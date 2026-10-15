@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>Para Karlita, con todo mi corazón ♡</title>
+<style>
+:root{--pink:#f6b7cc;--rose:#d96f96;--ink:#65475a;--cream:#fffaf7;--lilac:#d9d0f4;--gold:#e6bd75}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at 10% 10%,#fff 0,transparent 28%),linear-gradient(145deg,#fff6f8,#f8f1ff 55%,#fff7ec);min-height:100vh;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid #a45d85;outline-offset:3px}
+main{width:min(920px,100%);margin:auto;padding:24px 16px 64px}
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;padding:42px 12px}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font:600 .72rem Arial,sans-serif;color:#b26a8a}
+h1{font-size:clamp(2.7rem,10vw,5.7rem);line-height:.98;margin:18px 0;color:#b95780;font-weight:normal}
+h1 span{display:block;font-style:italic;color:#866ba9}
+.subtitle{font-size:clamp(1rem,3.8vw,1.25rem);line-height:1.7;max-width:540px;margin:12px auto 24px}
+.pill,.primary,.secondary{border:0;border-radius:999px;padding:14px 21px;transition:transform .2s,box-shadow .2s}
+.primary{background:linear-gradient(120deg,#e88daf,#c89fe7);color:white;box-shadow:0 10px 25px #ce8ab744}
+.secondary{background:#fff8fc;color:#a64f77;border:1px solid #f0c7d8}
+.pill:hover,.primary:hover,.secondary:hover{transform:translateY(-2px);box-shadow:0 9px 20px #b77b9b25}
+.tiny{font: .82rem Arial,sans-serif;color:#9b8193;margin-top:14px}
+.heart{font-size:2rem;color:#e38eae;animation:beat 1.8s infinite;display:inline-block}
+@keyframes beat{50%{transform:scale(1.17)}}
+.floaties span{position:absolute;opacity:.6;animation:float 7s ease-in-out infinite;font-size:clamp(1.2rem,4vw,2.2rem);pointer-events:none}
+.floaties span:nth-child(1){top:14%;left:10%}.floaties span:nth-child(2){top:23%;right:9%;animation-delay:1s}.floaties span:nth-child(3){bottom:16%;left:14%;animation-delay:2s}.floaties span:nth-child(4){bottom:22%;right:13%;animation-delay:3s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-18px) rotate(8deg)}}
+section{margin:26px 0;padding:clamp(22px,5vw,42px);border:1px solid #f3dce7;border-radius:28px;background:#ffffffb8;box-shadow:0 18px 50px #997b9810;backdrop-filter:blur(6px)}
+.section-kicker{font:600 .7rem Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#b26a8a}
+h2{font-size:clamp(1.8rem,6vw,3rem);font-weight:normal;margin:10px 0 18px;color:#9e5277}
+p{font-size:1.08rem;line-height:1.85}
+.envelope-wrap{text-align:center;padding:16px 0}
+.envelope{position:relative;width:min(260px,75vw);height:170px;margin:28px auto 22px;border:0;background:transparent;display:block}
+.env-body{position:absolute;inset:24px 0 0;background:#f5c5d7;border-radius:8px;box-shadow:0 12px 22px #bd7b9b2a}
+.env-flap{position:absolute;top:24px;left:0;width:100%;height:100px;background:#e9a9c2;clip-path:polygon(0 0,100% 0,50% 72%);transform-origin:top;transition:transform .7s;z-index:3}
+.env-heart{position:absolute;z-index:4;left:50%;top:75px;transform:translateX(-50%);font-size:2rem;color:#fff8fb;transition:opacity .3s}
+.envelope.open .env-flap{transform:rotateX(180deg);z-index:0}
+.envelope.open .env-heart{opacity:0}
+.letter{display:none;text-align:left;max-width:650px;margin:20px auto 0;padding:clamp(20px,5vw,34px);background:#fffdf9;border:1px solid #f1d8c5;border-radius:16px;box-shadow:0 12px 30px #8c6c7720}
+.letter.visible{display:block;animation:appear .65s ease both}
+.letter p{white-space:pre-line}
+.signature{font-style:italic;color:#b95780;font-size:1.3rem}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.message-card{min-height:150px;border:1px solid #f2d8e4;background:linear-gradient(145deg,#fff8fb,#f8f3ff);border-radius:18px;padding:18px 14px;color:#80546b;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.message-card .front{font-size:1.05rem}.message-card .back{display:none;font-size:.97rem;line-height:1.6}.message-card.revealed .front{display:none}.message-card.revealed .back{display:block}
+.note{font: .88rem/1.65 Arial,sans-serif;color:#947b8e}
+.final{background:linear-gradient(145deg,#fff2f7,#f4efff);text-align:center}
+.big-heart{font-size:3rem;animation:beat 1.8s infinite}
+footer{text-align:center;font: .8rem Arial,sans-serif;color:#a58d9d;padding:20px}
+.musicbar{position:fixed;bottom:12px;right:12px;z-index:10;display:flex;gap:8px;align-items:center;background:#fffaf3ed;border:1px solid #efd7e4;border-radius:999px;padding:7px;box-shadow:0 8px 28px #71526d20}
+.musicbar button{border:0;border-radius:999px;background:#f4d4e2;color:#8e4b6c;padding:10px 13px}
+.musicbar small{font: .72rem Arial,sans-serif;padding-right:8px}
+.confetti{position:fixed;top:-20px;z-index:20;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:0}}
+@media(max-width:600px){main{padding:12px 12px 80px}.hero{min-height:86vh}.cards{grid-template-columns:1fr}.message-card{min-height:110px}.musicbar small{display:none}section{border-radius:22px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div class="floaties" aria-hidden="true"><span>♡</span><span>✦</span><span>🌷</span><span>♡</span></div>
+    <div class="eyebrow">Un regalo hecho con amor</div>
+    <div class="heart" aria-hidden="true">♡</div>
+    <h1>Feliz cumpleaños,<span>Karlita</span></h1>
+    <p class="subtitle">Hoy el mundo tiene una razón más para ser bonito: celebrar que existes. Preparé este pequeño rincón solo para ti.</p>
+    <button class="primary" onclick="document.getElementById('carta').scrollIntoView({behavior:'smooth'})">Hay algo que quiero decirte ↓</button>
+    <div class="tiny">Hecho especialmente para ti, con todo mi cariño.</div>
+  </header>
+
+  <section id="carta">
+    <div class="section-kicker">Capítulo uno · Desde el corazón</div>
+    <h2>Una carta para ti 💌</h2>
+    <div class="envelope-wrap">
+      <p>Hay palabras que merecen abrirse despacito…</p>
+      <button class="envelope" id="envelope" aria-label="Abrir la carta" aria-expanded="false" onclick="openLetter()">
+        <span class="env-body"></span><span class="env-flap"></span><span class="env-heart">♥</span>
+      </button>
+      <button class="secondary" id="openButton" onclick="openLetter()">Abrir mi carta</button>
+    </div>
+    <article class="letter" id="letter">
+      <p>Mi Karlita hermosa:</p>
+      <p>Feliz cumpleaños, hermanita. 💗 Hoy quisiera poder estar ahí contigo, abrazarte fuerte, molestarte un ratito porque claramente no sería yo si no lo hiciera y pasar el día riéndonos de cualquier tontería, como tantas veces lo hemos hecho.</p>
+      <p>Desde que me mudé y nos toca estar lejos, hay momentos en los que extraño esas pequeñas cosas que antes parecían tan normales: jugar juntas, bromear por cualquier cosa, contarnos nuestras cosas y hasta discutir porque las dos tenemos nuestro carácter… aunque tú sabes que a veces eres bastante geniosa, ¿verdad? JAJAJA. No podía dejar pasar tu cumpleaños sin recordártelo. 🤭</p>
+      <p>Pero, entre bromas, quiero que sepas algo de verdad: tenerte como hermana es una de las cosas más bonitas de mi vida. Me encanta la confianza que tenemos, saber que podemos ser nosotras mismas, reírnos sin sentido y compartir cosas que quizá nadie más entendería de la misma manera.</p>
+      <p>La distancia cambió los lugares en los que estamos, pero no cambió lo que somos. Mudarnos, estar lejos o no poder vernos cada día no borra todo lo que hemos construido juntas. Sigues siendo mi hermanita, mi cómplice de bromas, mi compañera de juegos y una persona con la que siempre voy a compartir un lazo muy especial.</p>
+      <p>Deseo que este nuevo año de vida te traiga muchísima felicidad, que cumplas tus sueños, que nunca te falten motivos para reír y que encuentres personas que te cuiden y te quieran tan bonito como mereces. Y cuando tengas un día difícil, recuerda que no tienes que atravesarlo todo sola. Aunque no pueda estar físicamente a tu lado en cada momento, aquí tienes a tu hermana, que te quiere muchísimo.</p>
+      <p>Ojalá pronto podamos volver a abrazarnos, molestarnos en persona y crear más recuerdos de esos que después nos hacen reír cuando los recordamos. Mientras llega ese día, guarda esta pequeña página como un abrazo mío que puedes abrir cuando quieras.</p>
+      <p>Te quiero más de lo que a veces sé decirte, incluso cuando discutimos, incluso cuando me haces renegar y, por supuesto, incluso cuando tú crees que tienes la razón. (Aunque bueno… eso todavía lo podemos debatir jajaja). 💗</p>
+      <p>Feliz cumpleaños, Karlita. No importa cuántos kilómetros haya entre nosotras: siempre vas a tener un lugar enorme en mi corazón. La distancia nos separa por ahora, pero nuestro lazo sigue aquí, intacto. Y eso no cambia.</p>
+      <p class="signature">Con todo mi amor, tu hermana, tu cómplice y tu molestia favorita. ♡</p>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-kicker">Capítulo dos · Pequeñas verdades</div>
+    <h2>Mensajitos para guardar ✨</h2>
+    <p>Toca cada tarjeta para descubrir lo que esconde. Una pequeña dosis de cariño, hecha para ti.</p>
+    <div class="cards">
+      <button class="message-card" onclick="reveal(this)"><span class="front">🌷 Un recordatorio</span><span class="back">No tienes que poder con todo para ser fuerte. También mereces descansar y dejarte cuidar.</span></button>
+      <button class="message-card" onclick="reveal(this)"><span class="front">☁️ Para un día difícil</span><span class="back">Un mal día no significa una mala vida. Respira, ve paso a paso y recuerda que los días bonitos vuelven.</span></button>
+      <button class="message-card" onclick="reveal(this)"><span class="front">💗 Un deseo secreto</span><span class="back">Deseo que este año te acerque a las cosas que te hacen feliz y a la versión de ti que sueñas ser.</span></button>
+      <button class="message-card" onclick="reveal(this)"><span class="front">🫶 Algo que mereces</span><span class="back">Mereces un amor tranquilo, amistades sinceras, risas espontáneas y un lugar donde puedas ser tú.</span></button>
+      <button class="message-card" onclick="reveal(this)"><span class="front">🌟 Tu superpoder</span><span class="back">Tu forma de ser deja una huella. No siempre podrás verla, pero eso no significa que no exista.</span></button>
+      <button class="message-card" onclick="reveal(this)"><span class="front">🎂 El deseo final</span><span class="back">Que nunca te falten motivos para ilusionarte, personas con quien compartirlos y cariño para acompañarte.</span></button>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="section-kicker">Capítulo tres · Un abrazo en forma de página</div>
+    <div class="big-heart">💗</div>
+    <h2>Esto no termina aquí, Karlita</h2>
+    <p>Una página no puede guardar todos los abrazos que te debo ni decir por completo cuánto te deseo lo mejor. Pero sí puede dejarte estas palabras para que vuelvas a ellas cuando quieras.</p>
+    <p><strong>Que tu nuevo año de vida esté lleno de amor, calma, risas y sueños cumplidos.</strong></p>
+    <button class="primary" onclick="celebrate()">Toca aquí para tu última sorpresa ✨</button>
+    <p id="surprise" hidden style="font-size:1.2rem;color:#b95780">Si pudiera envolverte un deseo, sería que siempre estes rodeada de cosas buenas. ¡Te quiero!. Este regalo incluuye un cupón valido para pedir una canción cantada por tu hermanita ♡</p>
+  </section>
+  <footer>Creado con cariño para Karlita · Un pequeño universo solo para ti ♡</footer>
+</main>
+<div class="musicbar">
+  <button id="musicButton" onclick="toggleMusic()" aria-label="Activar música">♫ Música: apagada</button>
+  <small>Opcional · añade tu canción favorita</small>
+</div>
+<audio id="music" loop preload="none"><source src="musica.mp3" type="audio/mpeg"></audio>
+<script>
+let musicOn=false;
+function openLetter(){
+  const env=document.getElementById('envelope');
+  const letter=document.getElementById('letter');
+  env.classList.add('open'); env.setAttribute('aria-expanded','true');
+  letter.classList.add('visible');
+  document.getElementById('openButton').textContent='La carta está abierta ♡';
+}
+function reveal(card){card.classList.toggle('revealed');}
+async function toggleMusic(){
+  const audio=document.getElementById('music'), button=document.getElementById('musicButton');
+  if(!musicOn){
+    try{await audio.play();musicOn=true;button.textContent='♫ Música: encendida';}
+    catch(e){button.textContent='♫ Añade musica.mp3';alert('Para que la música funcione al compartir la página, coloca un archivo MP3 llamado musica.mp3 junto a index.html.');}
+  }else{audio.pause();musicOn=false;button.textContent='♫ Música: apagada';}
+}
+function celebrate(){
+  document.getElementById('surprise').hidden=false;
+  const symbols=['♡','✦','✿','💗','✨'];
+  for(let i=0;i<36;i++){
+    const el=document.createElement('span');el.className='confetti';el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    el.style.left=Math.random()*100+'vw';el.style.animationDuration=(3+Math.random()*3)+'s';el.style.fontSize=(14+Math.random()*18)+'px';
+    el.style.color=['#d96f96','#b59be5','#e6bd75','#e8a8bf'][i%4];
+    document.body.appendChild(el);setTimeout(()=>el.remove(),6500);
+  }
+}
+</script>
+</body>
+</html>
